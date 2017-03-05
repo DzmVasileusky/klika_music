@@ -1,0 +1,55 @@
+/*********************************************** 
+  Global styles
+***********************************************/
+.main {
+  padding-bottom: 60px;
+}
+
+/* KM Sort
+***********************************************/
+.km_sort-link {
+  display: block;
+  padding-right: 20px;
+  background: url(../img/icon-sort-middle.svg) right center no-repeat;
+  background-size: 10px auto;
+}
+
+.km_sort-link--active {
+  background-image: url(../img/icon-sort-down.svg);
+  background-size: 8px auto;
+}
+
+.km_sort-link--active.km_sort-link--reverse {
+  background-image: url(../img/icon-sort-up.svg);
+  background-size: 8px auto;
+}
+
+/* KM Pagination
+***********************************************/
+.km_pagination_pages_link--active,
+.km_pagination_pages_link--active:hover,
+.km_pagination_pages_link--active:focus,
+.km_pagination_pages_link--active:active,
+.km_pagination_pages_link--active:focus:active,
+.km_pagination_pages_link--active.active {
+  background: #337ab7;
+  border-color: #2e6da4;
+  color: #fff;
+
+  cursor: default;
+}
+
+.km_pagination_per-page {
+  float: right;
+  margin-top: 5px;
+}
+
+.km_pagination_per-page_link--active,
+.km_pagination_per-page_link--active:hover,
+.km_pagination_per-page_link--active:focus,
+.km_pagination_per-page_link--active:active,
+.km_pagination_per-page_link--active:focus:active,
+.km_pagination_per-page_link--active.active {
+  color: #000;
+  cursor: default;
+}

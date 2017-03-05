@@ -1,0 +1,11 @@
+<div class="km_pagination">
+  <div class="km_pagination_pages btn-group">
+    <a href="" class="km_pagination_prev btn btn-default" ng-disabled="$ctrl.page === 1" ng-click="$ctrl.setPage($ctrl.page - 1)">Prev</a>
+    <a href="" class="km_pagination_pages_link btn btn-default" ng-repeat="page in $ctrl.pages" ng-bind="page" ng-click="$ctrl.setPage(page)" ng-class="{ 'km_pagination_pages_link--active': $ctrl.page === page }"></a>
+    <a href="" class="km_pagination_next btn btn-default" ng-disabled="$ctrl.page === $ctrl.pagesCount" ng-click="$ctrl.setPage($ctrl.page + 1)">Next</a>
+  </div>
+
+  <div class="km_pagination_per-page">
+    Show: <a href="" ng-click="$ctrl.setPerPage(10)" ng-class="{ 'km_pagination_per-page_link--active': $ctrl.per === 10 }">10</a> | <a href="" ng-click="$ctrl.setPerPage(20)" ng-class="{ 'km_pagination_per-page_link--active': $ctrl.per === 20 }">20</a> | <a href="" ng-click="$ctrl.setPerPage(50)" ng-class="{ 'km_pagination_per-page_link--active': $ctrl.per === 50 }">50</a>
+  </div>
+</div>

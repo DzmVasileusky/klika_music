@@ -1,0 +1,79 @@
+<div class="page-header">
+  <h1>Top 100 songs of 60's</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-3 col-sm-push-9">
+    <!-- Filter -->
+    <h2>Filter</h2>
+    <div class="filter">
+      <!-- Singer Filter -->
+      <div class="form-group">
+        <label for="singer">Singer</label>
+        <select class="form-control" id="singer" ng-model="filterComparator.singer">
+          <option value="" selected>All</option>
+          <option ng-repeat="singer in singers track by singer.id" ng-bind="::singer.name" value="{{::singer.name}}"></option>
+        </select>
+      </div>
+      <!-- End Singer Filter -->
+
+      <!-- Singer Filter -->
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select class="form-control" id="genre" ng-model="filterComparator.genre">
+          <option value="" selected>All</option>
+          <option ng-repeat="genre in genres track by genre.id" ng-bind="::genre.name" value="{{::genre.name}}"></option>
+        </select>
+      </div>
+      <!-- End Singer Filter -->
+
+      <!-- Singer Filter -->
+      <div class="form-group">
+        <label for="year">Year</label>
+        <select class="form-control" id="year" ng-model="filterComparator.year">
+          <option value="" selected>All</option>
+          <option ng-repeat="year in years track by year.id" ng-bind="::year.name" value="{{::year.name}}"></option>
+        </select>
+      </div>
+      <!-- End Singer Filter -->
+    </div>
+    <!-- End Filter -->
+  </div>
+
+  <div class="col-sm-8 col-sm-pull-3">
+    <!-- Track table -->
+    <h2>Playist</h2>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>
+            <km-sort value="singer" current-state="sortConfig" on-set="sortBy(args)">Singer</km-sort>
+          </th>
+          <th>
+            <km-sort value="name" current-state="sortConfig" on-set="sortBy(args)">Name</km-sort>
+          </th>
+          <th>
+            <km-sort value="genre" current-state="sortConfig" on-set="sortBy(args)">Genre</km-sort>
+          </th>
+          <th>
+            <km-sort value="year" current-state="sortConfig" on-set="sortBy(args)">Year</km-sort>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="track in filteredTracks | orderBy:sortConfig.sortProperty:sortConfig.sortReverse | slice: (pageConfig.page - 1) * pageConfig.per : pageConfig.page * pageConfig.per">
+          <td ng-bind="track.singer"></td>
+          <td ng-bind="track.name"></td>
+          <td ng-bind="track.genre"></td>
+          <td ng-bind="track.year"></td>
+        </tr>
+        <tr ng-if="filteredTracks.length == 0"><td>Try to change search conditions</td></tr>
+      </tbody>
+    </table>
+    <!-- End Track table -->
+
+    <!-- Pagination -->
+    <km-pagination items-page="pageConfig.page" items-per-page="pageConfig.per" items-total="pageConfig.total" on-change-page="goPage(page)" on-change-per-page="updatePerPage(per)"></km-pagination>
+    <!-- End Pagination -->
+  </div>
+</div>
