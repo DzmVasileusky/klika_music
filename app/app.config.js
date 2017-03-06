@@ -13,5 +13,5 @@ angular.module('KMusic').config(['$stateProvider', '$urlRouterProvider', '$urlMa
     $state.go('tracks');
   });
 
-  RestangularProvider.setBaseUrl('http://localhost:8023/');
+  RestangularProvider.setBaseUrl('.');
 }]);
